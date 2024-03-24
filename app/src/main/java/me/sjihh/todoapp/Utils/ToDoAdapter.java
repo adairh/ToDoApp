@@ -1,5 +1,6 @@
-package me.sjihh.todoapp;
+package me.sjihh.todoapp.Utils;
 
+import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,7 +11,6 @@ import java.util.List;
 
 import me.sjihh.todoapp.R;
 import me.sjihh.todoapp.ToDoItem;
-import me.sjihh.todoapp.Utils.Langs;
 
 public class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.ViewHolder> {
     private List<ToDoItem> dataList;
@@ -38,23 +38,26 @@ public class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.ViewHolder> {
         return dataList.size();
     }
     public static class ViewHolder extends RecyclerView.ViewHolder {
+        private TextView idTextView;
         private TextView titleTextView;
         private TextView descriptionTextView;
         private TextView dueDateTextView;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+            idTextView = itemView.findViewById(R.id.id);
             titleTextView = itemView.findViewById(R.id.todo_item_title);
             descriptionTextView = itemView.findViewById(R.id.todo_item_description);
             dueDateTextView = itemView.findViewById(R.id.todo_item_due_date);
         }
 
         // Bind data to views and set click listener
+        @SuppressLint("SetTextI18n")
         public void bind(ToDoItem item, OnItemClickListener listener) {
-            titleTextView.setText(Langs.id + item.getId());
-            titleTextView.setText(Langs.title + item.getTitle());
-            descriptionTextView.setText(Langs.description + item.getDescription());
-            dueDateTextView.setText(Langs.due_date + String.valueOf(item.getDueDate()));
+            idTextView.setText("#" + item.getId());
+            titleTextView.setText(item.getTitle());
+            descriptionTextView.setText(item.getDescription());
+            dueDateTextView.setText(String.valueOf(item.getDueDate()));
 
             // Set click listener on the itemView
             itemView.setOnClickListener(v -> {

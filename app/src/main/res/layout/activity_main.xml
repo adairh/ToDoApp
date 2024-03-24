@@ -17,28 +17,24 @@
             android:background="?attr/colorPrimary"
             android:text="My To-Do List"
             app:titleTextColor="@android:color/white" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerView"
-                android:layout_width="match_parent"
-                android:layout_height="326dp"
-                app:layout_behavior="@string/appbar_scrolling_view_behavior" />
-
-        </LinearLayout>
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fab_add_todo"
-            android:layout_width="wrap_content"
-            android:layout_height="92dp"
-            android:layout_gravity="bottom|end"
-            android:layout_margin="16dp"
-            android:src="@android:drawable/ic_menu_add"
-            app:fabSize="normal" />
     </com.google.android.material.appbar.AppBarLayout>
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="92dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_add_todo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="16dp"
+        android:src="@android:drawable/ic_menu_add"
+        app:fabSize="normal"
+        app:layout_anchor="@id/recyclerView"
+        app:layout_anchorGravity="bottom|end" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -4,10 +4,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.SimpleAdapter;
-import android.widget.TextView;
-import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -15,16 +12,13 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.ArrayList;
 import java.util.List;
 
-import me.sjihh.todoapp.Handler.EnumHandler;
 import me.sjihh.todoapp.Handler.Handlers.DBHandler;
 import me.sjihh.todoapp.Handler.Handlers.ProgressHandler;
 import me.sjihh.todoapp.Handler.MainHandler;
 import me.sjihh.todoapp.Handler.Handlers.ToDoHandler;
 import me.sjihh.todoapp.R;
-import me.sjihh.todoapp.ToDoAdapter;
+import me.sjihh.todoapp.Utils.ToDoAdapter;
 import me.sjihh.todoapp.ToDoItem;
-import me.sjihh.todoapp.Utils.Langs;
-import me.sjihh.todoapp.Utils.Utils;
 
 public class MainActivity extends AppCompatActivity  implements ToDoAdapter.OnItemClickListener {
     private MainActivity mainActivity;
